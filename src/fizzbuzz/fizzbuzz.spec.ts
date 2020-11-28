@@ -17,8 +17,13 @@ describe('Fizz Buzz', () => {
     it('FizzBuzz from 1 to 4', () => {
         expect(generateFizzBuzz(1,4)).toBe('1\n2\nFizz\n4\n')
     });
+
     it('FizzBuzz from 1 to 5', () => {
         expect(generateFizzBuzz(1,5)).toBe('1\n2\nFizz\n4\nBuzz\n')
+    });
+
+    it('FizzBuzz from 1 to 6', () => {
+        expect(generateFizzBuzz(1,6)).toBe('1\n2\nFizz\n4\nBuzz\nFizz\n')
     });
 
 
