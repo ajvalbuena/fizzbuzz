@@ -5,6 +5,7 @@ export const generateFizzBuzz = (init: number, final: number): string => {
             let nextNumber = i.toString()
             if(i==3 || i%3 == 0 || nextNumber.includes('3')){nextNumber='Fizz'}
             if(i==5 || i%5 == 0 || nextNumber.includes('5')){nextNumber='Buzz'}
+            if(i%3 == 0 && i%5 == 0){nextNumber='FizzBuzz'}
             fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
         }
 
