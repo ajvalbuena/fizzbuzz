@@ -1,4 +1,7 @@
 import {generateFizzBuzz} from "./fizzbuzz";
+const fiizBuzz1to60 = "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\nFizz\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz" +
+    "\nFizz\n22\nFizz\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz\nFizz\nFizz\nFizz\nFizz\nFizzBuzz\nFizz\nFizz\nFizz\nFizz\nBuzz" +
+    "\n41\nFizz\nFizz\n44\nFizzBuzz\n46\n47\nFizz\n49\nBuzz\nFizzBuzz\nBuzz\nFizzBuzz\nFizzBuzz\nBuzz\nBuzz\nFizzBuzz\nBuzz\nBuzz\nFizzBuzz\n"
 
 describe('Fizz Buzz', () => {
 
@@ -32,6 +35,10 @@ describe('Fizz Buzz', () => {
 
     it('FizzBuzz from 1 to 15', () => {
         expect(generateFizzBuzz(1,15)).toBe('1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\nFizz\n14\nFizzBuzz\n')
+    });
+
+    it('FizzBuzz from 1 to 60', () => {
+        expect(generateFizzBuzz(1,60)).toBe(fiizBuzz1to60)
     });
 
 

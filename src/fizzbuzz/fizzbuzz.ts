@@ -24,10 +24,10 @@ const getNextNumber = (i: number) => {
 }
 
 const isFizz = (i: number) => {
-    return i == 3 || i % 3 == 0 || i.toString().includes('3')
+    return i % 3 == 0 || i.toString().includes('3')
 }
 
 const isBuzz = (i: number) => {
-    return i == 5 || i % 5 == 0 || i.toString().includes('5')
+    return i % 5 == 0 || i.toString().includes('5')
 }
 
