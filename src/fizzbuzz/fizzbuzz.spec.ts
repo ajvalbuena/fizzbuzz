@@ -58,5 +58,9 @@ describe('Fizz Buzz', () => {
         expect(generateFizzBuzz(0,0)).toBe("0\n")
     });
 
+    it('FizzBuzz from -7 to -1', () => {
+        expect(generateFizzBuzz(-7,-0)).toBe("-7\nFizz\nBuzz\n-4\nFizz\n-2\n-1\n0\n")
+    });
+
 
 })
