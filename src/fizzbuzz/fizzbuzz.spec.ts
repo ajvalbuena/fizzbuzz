@@ -41,5 +41,10 @@ describe('Fizz Buzz', () => {
         expect(generateFizzBuzz(1,60)).toBe(fiizBuzz1to60)
     });
 
+    it('FizzBuzz from 35 to 45', () => {
+        expect(generateFizzBuzz(35,45)).toBe("FizzBuzz\nFizz\nFizz\nFizz\nFizz\nBuzz" +
+            "\n41\nFizz\nFizz\n44\nFizzBuzz\n")
+    });
+
 
 })
