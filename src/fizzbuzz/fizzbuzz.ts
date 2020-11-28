@@ -1,23 +1,26 @@
 export const generateFizzBuzz = (init: number, final: number): string => {
     let fizzBuzzList = ''
 
-        for (let i = init; i <= final; i++) {
-            let nextNumber = getNextNumber(i);
-            fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
-        }
+    for (let i = init; i <= final; i++) {
+        let nextNumber = getNextNumber(i);
+        fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
+    }
 
     return fizzBuzzList
 }
 
 const getNextNumber = (i: number) => {
     let nextNumber = i.toString()
-    if (isFizzOrBuzz(i,3)) {
+    if (i == 0) {
+        return '0'
+    }
+    if (isFizzOrBuzz(i, 3)) {
         nextNumber = 'Fizz'
     }
     if (isFizzOrBuzz(i, 5)) {
         nextNumber = 'Buzz'
     }
-    if (isFizzOrBuzz(i,3) && isFizzOrBuzz(i,5) ) {
+    if (isFizzOrBuzz(i, 3) && isFizzOrBuzz(i, 5)) {
         nextNumber = 'FizzBuzz'
     }
     return nextNumber;
