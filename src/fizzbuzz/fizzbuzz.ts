@@ -11,15 +11,23 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 
 const getNextNumber = (i: number) => {
     let nextNumber = i.toString()
-    if (i == 3 || i % 3 == 0 || nextNumber.includes('3')) {
+    if (isFizz(i)) {
         nextNumber = 'Fizz'
     }
-    if (i == 5 || i % 5 == 0 || nextNumber.includes('5')) {
+    if (isBuzz(i)) {
         nextNumber = 'Buzz'
     }
-    if (i % 3 == 0 && i % 5 == 0) {
+    if (isFizz(i) && isBuzz(i) ) {
         nextNumber = 'FizzBuzz'
     }
     return nextNumber;
+}
+
+const isFizz = (i: number) => {
+    return i == 3 || i % 3 == 0 || i.toString().includes('3')
+}
+
+const isBuzz = (i: number) => {
+    return i == 5 || i % 5 == 0 || i.toString().includes('5')
 }
 
