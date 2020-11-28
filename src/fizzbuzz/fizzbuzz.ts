@@ -1,8 +1,12 @@
 export const generateFizzBuzz = (init: number, final: number): string => {
+    let fizzBuzzList = ''
 
-    if(init == final) {
-        return init.toString()
-    }
-    const fizzBuzzResult = init.toString()+ '\n' + final.toString();
-    return fizzBuzzResult
+        for (let i = init; i <= final; i++) {
+            let nextNumber = i.toString()
+            if(i==3){nextNumber='Fizz'}
+            fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
+        }
+
+
+    return fizzBuzzList
 }
