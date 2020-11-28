@@ -6,8 +6,7 @@ export const generateFizzBuzz = (init: number, final: number): string => {
     if (init > final) return WRONG_ARGUMENTS
 
     for (let i = init; i <= final; i++) {
-        let nextNumber = getNextNumber(i);
-        fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
+        fizzBuzzList = fizzBuzzList.concat(getNextNumber(i).concat('\n'))
     }
 
     return fizzBuzzList
