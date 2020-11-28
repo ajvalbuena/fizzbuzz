@@ -7,6 +7,5 @@ export const generateFizzBuzz = (init: number, final: number): string => {
             fizzBuzzList = fizzBuzzList.concat(nextNumber.concat('\n'))
         }
 
-
     return fizzBuzzList
 }

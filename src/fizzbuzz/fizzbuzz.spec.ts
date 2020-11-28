@@ -14,4 +14,8 @@ describe('Fizz Buzz', () => {
         expect(generateFizzBuzz(1,3)).toBe('1\n2\nFizz\n')
     });
 
+    it('FizzBuzz from 1 to 4', () => {
+        expect(generateFizzBuzz(1,4)).toBe('1\n2\nFizz\n4\n')
+    });
+
 })
