@@ -1,5 +1,9 @@
+const WRONG_ARGUMENTS = 'Wrong arguments'
+
 export const generateFizzBuzz = (init: number, final: number): string => {
     let fizzBuzzList = ''
+
+    if (init > final) return WRONG_ARGUMENTS
 
     for (let i = init; i <= final; i++) {
         let nextNumber = getNextNumber(i);

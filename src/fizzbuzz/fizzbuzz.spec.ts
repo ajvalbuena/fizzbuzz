@@ -58,9 +58,13 @@ describe('Fizz Buzz', () => {
         expect(generateFizzBuzz(0,0)).toBe("0\n")
     });
 
-    it('FizzBuzz from -7 to -1', () => {
+    it('FizzBuzz from -7 to -0', () => {
         expect(generateFizzBuzz(-7,-0)).toBe("-7\nFizz\nBuzz\n-4\nFizz\n-2\n-1\n0\n")
     });
+})
 
-
+describe('Errors', () => {
+    it('Error when init < final', () => {
+        expect(generateFizzBuzz(32,12)).toBe("Wrong arguments")
+    });
 })
