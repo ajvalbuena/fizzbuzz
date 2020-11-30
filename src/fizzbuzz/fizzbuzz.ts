@@ -1,3 +1,5 @@
+import {BuzzStrategy, FizzBuzzStrategy, FizzStrategy, NumberStrategy} from "./FizzBuzzGameStrategy";
+
 const WRONG_ARGUMENTS = 'Wrong arguments'
 
 export const generateFizzBuzz = (init: number, final: number): string => {
@@ -13,20 +15,19 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 }
 
 const getNextNumber = (i: number) => {
-    let nextNumber = i.toString()
     if (i == 0) {
-        return '0'
+        return new NumberStrategy().toFizzBuzz(i)
     }
     if (isFizzOrBuzz(i, 3)) {
-        nextNumber = 'Fizz'
+        return new FizzStrategy().toFizzBuzz(i)
     }
     if (isFizzOrBuzz(i, 5)) {
-        nextNumber = 'Buzz'
+        return new BuzzStrategy().toFizzBuzz(i)
     }
     if (isFizzOrBuzz(i, 3) && isFizzOrBuzz(i, 5)) {
-        nextNumber = 'FizzBuzz'
+        return new FizzBuzzStrategy().toFizzBuzz(i)
     }
-    return nextNumber;
+    return new NumberStrategy().toFizzBuzz(i)
 }
 
 const isFizzOrBuzz = (i: number, conditional: number) => {
