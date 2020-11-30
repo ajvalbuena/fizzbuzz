@@ -16,25 +16,14 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 
 const getNextNumber = (i: number) => {
 
+    const fizzBuzz = [new NumberStrategy(), new FizzBuzzStrategy(), new FizzStrategy(), new BuzzStrategy()]
+    for (let index = 0; index <= fizzBuzz.length; index++) {
+        if(fizzBuzz[index].appliesStrategy(i)){
+            return fizzBuzz[index].toFizzBuzz(i)
+        }
+    }
+    return ''
 
-    if (new NumberStrategy().appliesStrategy(i)) {
-        return new NumberStrategy().toFizzBuzz(i)
-    }
-    if (new FizzBuzzStrategy().appliesStrategy(i)) {
-        return new FizzBuzzStrategy().toFizzBuzz(i)
-    }
-
-    if (new FizzStrategy().appliesStrategy(i)) {
-        return new FizzStrategy().toFizzBuzz(i)
-    }
-    if (new BuzzStrategy().appliesStrategy(i)) {
-        return new BuzzStrategy().toFizzBuzz(i)
-    }
-
-    return new NumberStrategy().toFizzBuzz(i)
 }
 
-const isFizzOrBuzz = (i: number, conditional: number) => {
-    return i % conditional == 0 || i.toString().includes(conditional.toString())
-}
 
