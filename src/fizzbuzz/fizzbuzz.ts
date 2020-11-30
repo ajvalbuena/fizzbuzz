@@ -15,18 +15,22 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 }
 
 const getNextNumber = (i: number) => {
-    if (i == 0) {
+
+
+    if (new NumberStrategy().appliesStrategy(i)) {
         return new NumberStrategy().toFizzBuzz(i)
     }
-    if (isFizzOrBuzz(i, 3)) {
-        return new FizzStrategy().toFizzBuzz(i)
-    }
-    if (isFizzOrBuzz(i, 5)) {
-        return new BuzzStrategy().toFizzBuzz(i)
-    }
-    if (isFizzOrBuzz(i, 3) && isFizzOrBuzz(i, 5)) {
+    if (new FizzBuzzStrategy().appliesStrategy(i)) {
         return new FizzBuzzStrategy().toFizzBuzz(i)
     }
+
+    if (new FizzStrategy().appliesStrategy(i)) {
+        return new FizzStrategy().toFizzBuzz(i)
+    }
+    if (new BuzzStrategy().appliesStrategy(i)) {
+        return new BuzzStrategy().toFizzBuzz(i)
+    }
+
     return new NumberStrategy().toFizzBuzz(i)
 }
 
