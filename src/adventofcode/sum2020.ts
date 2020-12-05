@@ -5,23 +5,22 @@ export const getDay1Challenge = (inputs: number[]): number | undefined => {
 }
 
 
-function getArrayToSatisfiesTheSum(inputs: number[], totalSum: number) {
+const getArrayToSatisfiesTheSum = (inputs: number[], totalSum: number) => {
     let sumArray: Array<number> = [];
+    let newElement = null;
 
     inputs.map((number) => {
         let subarray = inputs.slice(inputs.indexOf(number) + 1, inputs.length)
-        subarray.map((nextNumber) => {
-            let sum = number + nextNumber;
-            if (sum == totalSum) {
-                sumArray = [number, nextNumber]
-            }
-        })
+        newElement = getElementSatisfiesTheSum(number,subarray,totalSum );
+        if(newElement){
+            sumArray = [number,newElement]
+        }
     })
 
     return sumArray;
 }
 
-function multiplyArrayElements(inputs: Array<number>): number | undefined {
+const multiplyArrayElements = (inputs: Array<number>): number | undefined => {
     if (inputs.length == 0) {
         return undefined
     }
@@ -32,3 +31,16 @@ function multiplyArrayElements(inputs: Array<number>): number | undefined {
     })
     return arrayMultiplication;
 }
+
+const getElementSatisfiesTheSum = (initialElement: number, subarray: Array<number>, sumResult: number): number | null=>{
+    let newElementOfTheList = null;
+    subarray.forEach((nextNumber) => {
+       let sum = initialElement + nextNumber;
+        if (sum == sumResult) {
+            newElementOfTheList = nextNumber;
+        }
+    })
+    return newElementOfTheList;
+}
+
+
