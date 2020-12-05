@@ -1,17 +1,19 @@
-export const getDay1Challenge = (inputs: number[]): number | undefined => {
-    const sumArray: Array<number> = getArrayToSatisfiesTheSum(inputs, 2020);
+export const getDay1Challenge = (inputs: number[], numberOfEntries: number,  sum: number ): number | undefined => {
+    let sumArray: Array<number> = [];
+    if(numberOfEntries ==2){
+     sumArray  = getArrayToSatisfiesTheSumOf2Elements(inputs, sum);
+    }
 
     return multiplyArrayElements(sumArray);
 }
 
 
-const getArrayToSatisfiesTheSum = (inputs: number[], totalSum: number) => {
+const getArrayToSatisfiesTheSumOf2Elements = (inputs: number[], totalSum: number) => {
     let sumArray: Array<number> = [];
-    let newElement = null;
 
-    inputs.map((number) => {
+    inputs.forEach((number) => {
         let subarray = inputs.slice(inputs.indexOf(number) + 1, inputs.length)
-        newElement = getElementSatisfiesTheSum(number,subarray,totalSum );
+        let newElement = getElementSatisfiesTheSum(number,subarray,totalSum );
         if(newElement){
             sumArray = [number,newElement]
         }

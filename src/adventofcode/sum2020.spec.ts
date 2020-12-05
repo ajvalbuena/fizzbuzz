@@ -16,21 +16,29 @@ describe('firstDayChallenge - proof of concept', () => {
 
         const inputList: Array<number> = [1721, 979, 366, 299, 675, 1456];
         const expectedOutput = 514579;
-        expect(getDay1Challenge(inputList)).toEqual(expectedOutput)
+        expect(getDay1Challenge(inputList,2, 2020)).toEqual(expectedOutput)
 
     });
 
     it("should return null if the elements do not satisfies the sum", () => {
 
         const inputList: Array<number> = [1721, 979, 366, 300, 675, 1456];
-        expect(getDay1Challenge(inputList)).toEqual(undefined)
+        expect(getDay1Challenge(inputList,2, 2020)).toEqual(undefined)
+
+    });
+
+    it("should return the multiplication of the three entries that sum to 10", () => {
+
+        const inputList: Array<number> = [2, 3, 5, 6];
+        const expectedOutput = 30;
+        expect(getDay1Challenge(inputList,3,2020)).toEqual(undefined)
 
     });
 })
 
-describe("firsDayChallenge - RESULT", () => {
+describe("firsDayChallenge - Challenge 1 - RESULT", () => {
     it('should return the result of the challenge with the given inputs', () => {
         const expectedOutput = 703131;
-        expect(getDay1Challenge(puzzleInput)).toEqual(expectedOutput)
+        expect(getDay1Challenge(puzzleInput,2,2020)).toEqual(expectedOutput)
     });
 })
