@@ -15,9 +15,10 @@ const getArrayToSatisfiesTheSumOf2Elements = (inputs: number[], totalSum: number
 
     inputs.forEach((number) => {
         let subarray = inputs.slice(inputs.indexOf(number) + 1, inputs.length)
-        let newElement = getElementSatisfiesTheSum(number, subarray, totalSum);
-        if (newElement) {
-            sumArray = [number, newElement]
+        let mainArray: Array<number> = [number]
+        let newElement = getElementSatisfiesTheSum(mainArray, subarray, totalSum);
+        if (newElement.length ==2 ) {
+            sumArray = newElement
         }
     })
 
@@ -32,14 +33,14 @@ const getArrayToSatisfiesTheSumOf3Elements = (inputs: number[], totalSum: number
 
         subarray.forEach((nextNumber) => {
             let subsubarray = subarray.slice(subarray.indexOf(nextNumber) + 1, inputs.length)
-            let newElement = getElementSatisfiesTheSum(number + nextNumber, subsubarray, totalSum);
-            if (newElement) {
-                sumArray = [number, nextNumber, newElement]
+            let mainArray: Array<number> = [number, nextNumber]
+            let newElement = getElementSatisfiesTheSum(mainArray, subsubarray, totalSum);
+            if (newElement.length ==3) {
+                sumArray = newElement;
             }
 
         })
     })
-
     return sumArray;
 }
 
@@ -55,15 +56,28 @@ const multiplyArrayElements = (inputs: Array<number>): number | undefined => {
     return arrayMultiplication;
 }
 
-const getElementSatisfiesTheSum = (initialElement: number, subarray: Array<number>, sumResult: number): number | null => {
-    let newElementOfTheList = null;
-    subarray.forEach((nextNumber) => {
-        let sum = initialElement + nextNumber;
+const sumArrayElements = (inputs: Array<number>): number => {
+    if (inputs.length == 0) {
+        return 0
+    }
+
+    let totalSum: number = 0;
+    inputs.map((number) => {
+        totalSum += number;
+    })
+    return totalSum;
+}
+
+const getElementSatisfiesTheSum = (initialElementsArray: Array<number>, subArray: Array<number>, sumResult: number)=> {
+    const initialSum = sumArrayElements(initialElementsArray)
+    subArray.forEach((nextNumber) => {
+
+        let sum = initialSum + nextNumber;
         if (sum == sumResult) {
-            newElementOfTheList = nextNumber;
+            initialElementsArray.push(nextNumber);
         }
     })
-    return newElementOfTheList;
+    return initialElementsArray;
 }
 
 
