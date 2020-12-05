@@ -31,7 +31,7 @@ describe('firstDayChallenge - proof of concept', () => {
 
         const inputList: Array<number> = [2, 3, 5, 6];
         const expectedOutput = 30;
-        expect(getDay1Challenge(inputList,3,2020)).toEqual(undefined)
+        expect(getDay1Challenge(inputList,3,10)).toEqual(expectedOutput)
 
     });
 })
