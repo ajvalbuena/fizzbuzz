@@ -37,8 +37,15 @@ describe('firstDayChallenge - proof of concept', () => {
 })
 
 describe("firsDayChallenge - Challenge 1 - RESULT", () => {
-    it('should return the result of the challenge with the given inputs', () => {
+    it('should return the result of the challenge with the given inputs (2 entries)', () => {
         const expectedOutput = 703131;
         expect(getDay1Challenge(puzzleInput,2,2020)).toEqual(expectedOutput)
+    });
+})
+
+describe("firsDayChallenge - Challenge 2 - RESULT", () => {
+    it('should return the result of the challenge with the given inputs (3 entries)', () => {
+        const expectedOutput = 272423970;
+        expect(getDay1Challenge(puzzleInput,3,2020)).toEqual(expectedOutput)
     });
 })

@@ -44,6 +44,24 @@ const getArrayToSatisfiesTheSumOf3Elements = (inputs: number[], totalSum: number
     return sumArray;
 }
 
+const getElementSatisfiesTheSum = (initialElementsArray: Array<number>, subArray: Array<number>, sumResult: number)=> {
+    const initialSum = sumArrayElements(initialElementsArray)
+    subArray.forEach((nextNumber) => {
+        let sum = initialSum + nextNumber;
+        if (sum == sumResult) {
+            initialElementsArray.push(nextNumber);
+        }
+    })
+    return initialElementsArray;
+}
+
+
+
+
+
+
+
+
 const multiplyArrayElements = (inputs: Array<number>): number | undefined => {
     if (inputs.length == 0) {
         return undefined
@@ -68,16 +86,6 @@ const sumArrayElements = (inputs: Array<number>): number => {
     return totalSum;
 }
 
-const getElementSatisfiesTheSum = (initialElementsArray: Array<number>, subArray: Array<number>, sumResult: number)=> {
-    const initialSum = sumArrayElements(initialElementsArray)
-    subArray.forEach((nextNumber) => {
 
-        let sum = initialSum + nextNumber;
-        if (sum == sumResult) {
-            initialElementsArray.push(nextNumber);
-        }
-    })
-    return initialElementsArray;
-}
 
 
