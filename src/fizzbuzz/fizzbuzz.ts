@@ -1,4 +1,9 @@
-import {BuzzStrategy, FizzBuzzStrategy, FizzStrategy, NumberStrategy} from "./FizzBuzzGameStrategy";
+import {
+    BuzzStrategy,
+    FizzBuzzStrategy,
+    FizzStrategy,
+    NumberStrategy
+} from "./FizzBuzzGameStrategy";
 
 const WRONG_ARGUMENTS = 'Wrong arguments'
 
@@ -15,16 +20,15 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 }
 
 const getNextNumber = (i: number) => {
-    let nextNumber = ''
-    const fizzBuzzStrategies = [ new FizzStrategy(), new BuzzStrategy(), new FizzBuzzStrategy(), new NumberStrategy()]
 
-    fizzBuzzStrategies.forEach((strategy) => {
-        if (strategy.appliesStrategy(i)) {
-            nextNumber = strategy.toFizzBuzz(i)
-        }
-    })
-    return nextNumber
+    const  fizzStrategy = new FizzStrategy()
+    const  buzzStrategy = new BuzzStrategy().setNext(fizzStrategy)
+    const  fizzBuzzStrategy = new FizzBuzzStrategy().setNext( buzzStrategy)
+    const  numberStrategy = new NumberStrategy().setNext(fizzBuzzStrategy)
 
+
+    return numberStrategy.getFizzBuzzElement(i)
 }
+
 
 
