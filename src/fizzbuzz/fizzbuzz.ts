@@ -26,7 +26,6 @@ const getNextNumber = (i: number) => {
     const  fizzBuzzStrategy = new FizzBuzzStrategy().setNext( buzzStrategy)
     const  numberStrategy = new NumberStrategy().setNext(fizzBuzzStrategy)
 
-
     return numberStrategy.getFizzBuzzElement(i)
 }
 

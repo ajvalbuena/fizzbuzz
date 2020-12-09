@@ -1,4 +1,4 @@
-export const getDay1Challenge = (inputs: number[], numberOfEntries: number, sum: number): number | undefined => {
+export const reportRepair = (inputs: number[], numberOfEntries: number, sum: number): number | undefined => {
     let sumArray: Array<number> = [];
     if (numberOfEntries == 2) {
         sumArray = getArrayToSatisfiesTheSumOf2Elements(inputs, sum);
@@ -56,19 +56,13 @@ const getElementSatisfiesTheSum = (initialElementsArray: Array<number>, subArray
 }
 
 
-
-
-
-
-
-
 const multiplyArrayElements = (inputs: Array<number>): number | undefined => {
     if (inputs.length == 0) {
         return undefined
     }
 
     let arrayMultiplication: number = 1;
-    inputs.map((number) => {
+    inputs.forEach((number) => {
         arrayMultiplication *= number;
     })
     return arrayMultiplication;
@@ -80,7 +74,7 @@ const sumArrayElements = (inputs: Array<number>): number => {
     }
 
     let totalSum: number = 0;
-    inputs.map((number) => {
+    inputs.forEach((number) => {
         totalSum += number;
     })
     return totalSum;
