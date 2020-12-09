@@ -15,14 +15,15 @@ export const generateFizzBuzz = (init: number, final: number): string => {
 }
 
 const getNextNumber = (i: number) => {
+    let nextNumber = ''
+    const fizzBuzzStrategies = [ new FizzStrategy(), new BuzzStrategy(), new FizzBuzzStrategy(), new NumberStrategy()]
 
-    const fizzBuzz = [new NumberStrategy(), new FizzBuzzStrategy(), new FizzStrategy(), new BuzzStrategy()]
-    for (let index = 0; index <= fizzBuzz.length; index++) {
-        if(fizzBuzz[index].appliesStrategy(i)){
-            return fizzBuzz[index].toFizzBuzz(i)
+    fizzBuzzStrategies.forEach((strategy) => {
+        if (strategy.appliesStrategy(i)) {
+            nextNumber = strategy.toFizzBuzz(i)
         }
-    }
-    return ''
+    })
+    return nextNumber
 
 }
 
