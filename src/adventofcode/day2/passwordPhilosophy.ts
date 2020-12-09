@@ -1,5 +1,5 @@
-export const passwordPhilosophy = (inputs: string[]) :number => {
-    return getNumberOfTimesOfTheLetter("abcde", "a" );
+export const passwordPhilosophy = (inputs: string[]) :boolean => {
+    return isValidPassword(3,1, getNumberOfTimesOfTheLetter("abcde", "a" ));
 }
 
 
@@ -10,9 +10,9 @@ const getNumberOfTimesOfTheLetter = (password: string, letter: string): number =
             numberOfTimes+= 1
         }
     }
-
-    if(password.startsWith(letter)){
-        return 1
-    }
     return numberOfTimes
+}
+
+const isValidPassword = (max: number, min: number, numberOfTimes: number): boolean => {
+    return (min<= numberOfTimes && numberOfTimes <= max)
 }
