@@ -12,4 +12,10 @@ describe('secondDayChallenge - Password Philosophy - proof of concept', () => {
         expect(passwordPhilosophy(inputs)).toBe(0)
 
     });
+
+    it('should return 2 for two valid passwords in the array', ()=>  {
+        const inputs : Array<string>  = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
+        expect(passwordPhilosophy(inputs)).toBe(2)
+
+    });
 })

@@ -1,10 +1,15 @@
 export const passwordPhilosophy = (inputs: string[]): number => {
     let numberOfValidPasswords = 0
-    const {letter, password, min, max} = getElementsOfTheInputs(inputs);
-    numberOfValidPasswords += isaValidPassword(max, min, getNumberOfTimesTheLetterIsRepeated(password, letter)) ? 1 : 0
+    inputs.forEach((input) =>{
+        numberOfValidPasswords +=  isAValidPassword(input) ? 1 : 0
+    })
     return numberOfValidPasswords
 }
 
+ const isAValidPassword = (input: string ): boolean => {
+     const {letter, password, min, max} = getElementsOfTheInputs(input);
+     return isBetweenMaxAndMin(max, min, getNumberOfTimesTheLetterIsRepeated(password, letter))
+}
 
 const getNumberOfTimesTheLetterIsRepeated = (password: string, letter: string): number => {
     let numberOfTimes = 0
@@ -16,12 +21,12 @@ const getNumberOfTimesTheLetterIsRepeated = (password: string, letter: string): 
     return numberOfTimes
 }
 
-const isaValidPassword = (max: number, min: number, numberOfTimes: number): boolean => (min <= numberOfTimes) && (numberOfTimes <= max)
+const isBetweenMaxAndMin = (max: number, min: number, numberOfTimes: number): boolean => (min <= numberOfTimes) && (numberOfTimes <= max)
 
 const separateElementsWithSeparator = (input: string, separator: string): Array<string> =>  input.split(separator)
 
-function getElementsOfTheInputs(inputs: string[]) {
-    const threeElements = separateElementsWithSeparator(inputs[0], " ")
+const getElementsOfTheInputs = (input: string) => {
+    const threeElements = separateElementsWithSeparator(input, " ")
     const limits = separateElementsWithSeparator(threeElements[0], "-")
     const letter = separateElementsWithSeparator(threeElements[1], ":")[0]
     const password = threeElements[2]
