@@ -37,8 +37,14 @@ describe("firsDayChallenge - Report Repair - Challenge 1 - RESULT", () => {
 
 
 describe('secondDayChallenge - Password Philosophy (position) - proof of concept', () => {
-    it('should return 1 for one valid password because 1 or 3 position matches the letter', () => {
+    it('should return 1 for one valid password and 1 entry', () => {
         const inputs: Array<string> = ["1-3 a: abcde"]
+        expect(passwordPhilosophy(inputs, new PositionsPasswordPolicy)).toBe(1)
+
+    });
+
+    it('should return 1 for one valid password and 3 different entries', () => {
+        const inputs: Array<string> = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
         expect(passwordPhilosophy(inputs, new PositionsPasswordPolicy)).toBe(1)
 
     });
