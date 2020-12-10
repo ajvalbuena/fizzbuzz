@@ -48,4 +48,10 @@ describe('secondDayChallenge - Password Philosophy (position) - proof of concept
         expect(passwordPhilosophy(inputs, new PositionsPasswordPolicy)).toBe(1)
 
     });
+
+    it('should return 0 for none valid password', () => {
+        const inputs: Array<string> = ["1-3 a: abade", "1-3 b: cdefg", "2-9 c: ccccccccc", "2-10 s: ccccccccccccc"]
+        expect(passwordPhilosophy(inputs, new PositionsPasswordPolicy)).toBe(0)
+
+    });
 })

@@ -34,21 +34,29 @@ export class MinAndMaxPasswordPolicy extends PasswordPolicies {
 }
 
 
+
+
 export class PositionsPasswordPolicy extends PasswordPolicies {
     isAValidPassword = (input: string): boolean => {
         const {letter, password, number1, number2} = this.getElementsOfTheInputs(input);
-        let numberOfMatching = 0
-        if(this.letterIsInThisPosition(letter, password, number1)){
-            numberOfMatching+=1
-        }
-        if(this.letterIsInThisPosition(letter, password, number2)){
-            numberOfMatching+=1
-        }
-        return numberOfMatching ==1
+        let numberOfMatches = this.numberOfMatches(letter, password, number1, number2);
+        return numberOfMatches ==1
     }
 
-    letterIsInThisPosition = (letter: string, password:string, position: number): boolean =>{
-        const index: number = position-1
+    letterIsInThisPosition = (letter: string, password:string, index: number): boolean =>{
         return password.charAt(index) == letter
+    }
+
+    numberOfMatches = (letter: string, password: string, number1: number, number2: number): number => {
+        const positions: Array<number> = [number1-1, number2-1]
+        let numberOfMatching = 0
+
+        positions.forEach((index)=>{
+            if(this.letterIsInThisPosition(letter,password,index)){
+                numberOfMatching += 1
+            }
+        })
+
+        return numberOfMatching;
     }
 }
