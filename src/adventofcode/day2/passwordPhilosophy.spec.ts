@@ -29,7 +29,7 @@ describe('secondDayChallenge - Password Philosophy (Min&Max) - proof of concept'
     });
 })
 
-describe("firsDayChallenge - Report Repair - Challenge 1 - RESULT", () => {
+describe("secondDayChallenge - Password Philosophy - Challenge 1 - RESULT", () => {
     it("should return the result of the challenge", () => {
         expect(passwordPhilosophy(challengeInputs, new MinAndMaxPasswordPolicy)).toBe(445)
     })
@@ -54,4 +54,10 @@ describe('secondDayChallenge - Password Philosophy (position) - proof of concept
         expect(passwordPhilosophy(inputs, new PositionsPasswordPolicy)).toBe(0)
 
     });
+})
+
+describe("secondDayChallenge - Password Philosophy - Challenge 2 - RESULT", () => {
+    it("should return the result of the challenge", () => {
+        expect(passwordPhilosophy(challengeInputs, new PositionsPasswordPolicy)).toBe(491)
+    })
 })
