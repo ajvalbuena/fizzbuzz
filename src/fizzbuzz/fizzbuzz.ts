@@ -4,6 +4,7 @@ import {
     FizzStrategy,
     NumberStrategy
 } from "./FizzBuzzGameStrategy";
+import {getStrategyThatAppliesFor} from "./FizzBuzzResponsabilityChain";
 
 const WRONG_ARGUMENTS = 'Wrong arguments'
 
@@ -19,14 +20,9 @@ export const generateFizzBuzz = (init: number, final: number): string => {
     return fizzBuzzList
 }
 
-const getNextNumber = (i: number) => {
+const getNextNumber = (number: number) => {
 
-    const  fizzStrategy = new FizzStrategy()
-    const  buzzStrategy = new BuzzStrategy().setNext(fizzStrategy)
-    const  fizzBuzzStrategy = new FizzBuzzStrategy().setNext( buzzStrategy)
-    const  numberStrategy = new NumberStrategy().setNext(fizzBuzzStrategy)
-
-    return numberStrategy.getFizzBuzzElement(i)
+    return getStrategyThatAppliesFor(number).toFizzBuzz(number)
 }
 
 

@@ -1,19 +1,10 @@
 export abstract class FizzBuzzGameStrategy {
-    protected nextStrategy:FizzBuzzGameStrategy;
-
-
-    public setNext = ((strategy: FizzBuzzGameStrategy) => {
-        this.nextStrategy = strategy;
-        return this
-
-    })
-    public getFizzBuzzElement = (i: number): string => this.appliesStrategy(i) ? this.toFizzBuzz(i) : this.nextStrategy.getFizzBuzzElement(i)
 
     protected isFizzOrBuzz = (i: number, conditional: number) : boolean  => i % conditional == 0 || i.toString().includes(conditional.toString())
 
 
-    toFizzBuzz: ((i: number) => string) | undefined
-    appliesStrategy: (i: number) => boolean
+    abstract toFizzBuzz: ((i: number) => string)
+    abstract appliesStrategy: (i: number) => boolean
 
 
 }
