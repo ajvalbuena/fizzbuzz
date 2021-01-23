@@ -1,5 +1,5 @@
 export abstract class PasswordPolicies {
-    isAValidPassword: (input: string) => boolean
+    abstract isAValidPassword: (input: string) => boolean
 
     protected getElementsOfTheInputs = (input: string) => {
         const threeElements = this.separateElementsWithSeparator(input, " ")
