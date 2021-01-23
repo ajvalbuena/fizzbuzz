@@ -1,30 +1,32 @@
 export abstract class FizzBuzzGameStrategy {
+    number: number;
 
-    protected isFizzOrBuzz = (i: number, conditional: number) : boolean  => i % conditional == 0 || i.toString().includes(conditional.toString())
+    constructor(number: number) {
+        this.number = number;
+    }
 
+    protected isFizzOrBuzz = (conditional: number) : boolean  => this.number % conditional == 0 || this.number.toString().includes(conditional.toString())
 
-    abstract toFizzBuzz: ((i: number) => string)
-    abstract appliesStrategy: (i: number) => boolean
-
-
+    abstract toFizzBuzz (): string
+    abstract appliesStrategy(): boolean
 }
 
 export class FizzStrategy extends FizzBuzzGameStrategy {
-    toFizzBuzz = (i: number): string => 'Fizz'
-    appliesStrategy = (i: number): boolean => this.isFizzOrBuzz(i, 3)
+    toFizzBuzz = (): string => 'Fizz'
+    appliesStrategy = (): boolean => this.isFizzOrBuzz(3)
 }
 
 export class BuzzStrategy extends FizzBuzzGameStrategy {
-    toFizzBuzz = (i: number): string => 'Buzz'
-    appliesStrategy = (i: number): boolean => this.isFizzOrBuzz(i, 5)
+    toFizzBuzz = (): string => 'Buzz'
+    appliesStrategy = (): boolean => this.isFizzOrBuzz(5)
 }
 
 export class FizzBuzzStrategy extends FizzBuzzGameStrategy {
-    toFizzBuzz = (i: number): string => 'FizzBuzz'
-    appliesStrategy = (i: number): boolean => (this.isFizzOrBuzz(i, 3) && this.isFizzOrBuzz(i, 5))
+    toFizzBuzz = (): string => 'FizzBuzz'
+    appliesStrategy = (): boolean => (this.isFizzOrBuzz(3) && this.isFizzOrBuzz(5))
 }
 
 export class NumberStrategy extends FizzBuzzGameStrategy {
-    toFizzBuzz = (i: number): string => i.toString()
-    appliesStrategy = (i: number): boolean=> i==0 ? true :  (!this.isFizzOrBuzz(i, 3) && !this.isFizzOrBuzz(i, 5))
+    toFizzBuzz = (): string => this.number.toString()
+    appliesStrategy = (): boolean=> this.number==0 ? true :  (!this.isFizzOrBuzz(3) && !this.isFizzOrBuzz(5))
 }

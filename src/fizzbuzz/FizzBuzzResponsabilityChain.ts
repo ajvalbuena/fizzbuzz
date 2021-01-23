@@ -6,12 +6,8 @@ import {
     NumberStrategy
 } from "./FizzBuzzGameStrategy";
 
-
-const fizzBuzzstrategies = new Array<FizzBuzzGameStrategy>(new NumberStrategy(), new FizzBuzzStrategy(), new BuzzStrategy(), new FizzStrategy())
-
-
 export const getStrategyThatAppliesFor = (number: number):FizzBuzzGameStrategy   => {
-
-    return fizzBuzzstrategies.find((strategy: FizzBuzzGameStrategy) => strategy.appliesStrategy(number)) || new NumberStrategy()
+    const fizzBuzzStrategies = new Array<FizzBuzzGameStrategy>(new NumberStrategy(number), new FizzBuzzStrategy(number), new BuzzStrategy(number), new FizzStrategy(number))
+    return fizzBuzzStrategies.find((strategy: FizzBuzzGameStrategy) => strategy.appliesStrategy()) || new NumberStrategy(number)
 }
 
