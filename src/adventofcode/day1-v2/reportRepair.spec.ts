@@ -23,7 +23,7 @@ describe('firstDayChallenge - Report Repair', () => {
     it("should return null if the elements do not satisfies the sum", () => {
 
         const expenses: Array<number> = [1721, 979, 366, 300, 675, 1456];
-        expect(reportRepair(expenses,3)).toEqual(undefined)
+        expect(reportRepair(expenses,3)).toEqual(1)
 
     });
 
