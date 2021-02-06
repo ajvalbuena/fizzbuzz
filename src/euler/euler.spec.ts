@@ -12,6 +12,9 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
         {description: 'If N= 7 --> 3,5,6 --> sum=14', lastNumber: 7, resultOfSum: 14},
         {description: 'If N= 8 --> 3,5,6 --> sum=14', lastNumber: 8, resultOfSum: 14},
         {description: 'If N= 9 --> 3,5,6 --> sum=14', lastNumber: 9, resultOfSum: 14},
+        {description: 'If N= 10 --> 3,5,6,9 --> sum=23', lastNumber: 10, resultOfSum: 23},
+        {description: 'If N= 15 --> 3,5,6,9,10,12 --> sum=45', lastNumber: 15, resultOfSum: 45},
+        {description: 'If N= 16 --> 3,5,6,9,10,12,15 --> sum=60', lastNumber: 16, resultOfSum: 60},
 
     ]
 
