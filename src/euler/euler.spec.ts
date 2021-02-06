@@ -16,8 +16,8 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
     })
 
     const inputsWithResult3 = [
-        {description: 'If N= 4 --> 3', lastNumber: 4},
-        {description: 'If N= 5 --> 3', lastNumber: 5},
+        {description: 'If N= 4 --> 3 --> sum=3', lastNumber: 4},
+        {description: 'If N= 5 --> 3 --> sum=3', lastNumber: 5},
     ]
 
     inputsWithResult3.forEach((input) => {
@@ -26,5 +26,11 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
             expect(euler(input.lastNumber)).toBe(sumResult)
         });
     })
+
+    it('If N= 6 --> 3,5 --> sum= 8 ', () => {
+        const sumResult = 8
+        expect(euler(6)).toBe(sumResult)
+    });
+
 
 })
