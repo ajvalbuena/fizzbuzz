@@ -15,4 +15,9 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
         });
     })
 
+    it("If N=4 --> 3", () => {
+        const sumResult = 3
+        expect(euler(4)).toBe(sumResult)
+    });
+
 })
