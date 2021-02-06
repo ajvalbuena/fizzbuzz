@@ -1,20 +1,18 @@
 export abstract class ExpensesResult {
 
-    operators: number[]
     expenses: number[]
     sum: number = 2020
 
-    constructor(operators: number[], expenses: number[], sum: number) {
-        this.operators = operators;
+    constructor( expenses: number[], sum: number) {
         this.expenses = expenses;
         this.sum = sum;
     }
 
 
-    sumOfNElements = () => this.operators.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    multiplicationOfNElements = () => this.operators.reduce((accumulator, currentValue) => accumulator * currentValue, 1)
+    sumOfNElements = (elements: number[]) => elements.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    multiplicationOfNElements = (elements: number[]) => elements.reduce((accumulator, currentValue) => accumulator * currentValue, 1)
 
-    found = (): boolean => this.sumOfNElements() == this.sum;
+    found = (elements: number[]): boolean => this.sumOfNElements(elements) == this.sum;
 
     abstract multiplicationOfTheElementsThatSatisfyTheSum(): number;
 
@@ -23,47 +21,51 @@ export abstract class ExpensesResult {
 
 export class ExpensesResult2Elements extends ExpensesResult {
     multiplicationOfTheElementsThatSatisfyTheSum = () => {
+        let operators = Array();
         let i = 0
-        while (!this.found() && i <= this.expenses.length) {
-            this.elementsThatSatisfyTheSum(i);
+        while (!this.found(operators) && i <= this.expenses.length) {
+            operators = this.elementsThatSatisfyTheSum(i);
             i++
         }
-        return this.multiplicationOfNElements()
+        return this.multiplicationOfNElements(operators)
 
     }
 
-    private elementsThatSatisfyTheSum = (i: number) => {
-        this.operators = Array()
+    private elementsThatSatisfyTheSum = (i: number): number[]=> {
+        let operators = Array();
         let j = i + 1
-        while (!this.found() && j <= this.expenses.length) {
-            this.operators = Array(this.expenses[i], this.expenses[j])
+        while (!this.found(operators) && j <= this.expenses.length) {
+            operators = Array(this.expenses[i], this.expenses[j])
             j++
         }
+        return operators;
     }
 }
 
 
 export class ExpensesResult3Elements extends ExpensesResult {
     multiplicationOfTheElementsThatSatisfyTheSum = (): number => {
+        let operators = Array();
         let i = 0
-        while (!this.found() && i <= this.expenses.length) {
+        while (!this.found(operators) && i <= this.expenses.length) {
             let j = i + 1
-            while (!this.found() && j <= this.expenses.length) {
-                this.elementsThatSatisfyTheSum(i, j);
+            while (!this.found(operators) && j <= this.expenses.length) {
+                operators = this.elementsThatSatisfyTheSum(i, j);
                 j++
             }
             i++
         }
-        return this.multiplicationOfNElements()
+        return this.multiplicationOfNElements(operators)
     }
 
-    private elementsThatSatisfyTheSum = (i: number, j: number): void => {
-        this.operators = Array()
+    private elementsThatSatisfyTheSum = ( i: number, j: number): number[] => {
+        let operators = Array();
         let x = j + 1
-        while (!this.found() && x <= this.expenses.length) {
-            this.operators = Array(this.expenses[i], this.expenses[j], this.expenses[x])
+        while (!this.found(operators) && x <= this.expenses.length) {
+            operators = Array(this.expenses[i], this.expenses[j], this.expenses[x])
             x++
         }
+        return operators;
     }
 
 
