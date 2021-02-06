@@ -1,8 +1,16 @@
 export const euler = (lastNumber: number): number => {
-    if(lastNumber == 4 || lastNumber == 5) return sumOfNElements(Array(3,0))
-    else if(lastNumber == 6) return sumOfNElements(Array(3,5))
-    else if(lastNumber == 7 || lastNumber == 8 || lastNumber == 9) return sumOfNElements(Array(3,5,6))
-    return sumOfNElements(Array())
+    return  sumOfNElements(multiplesOf3Or5(lastNumber))
 }
 
 const sumOfNElements = (elements: number[]) => elements.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+
+const multiplesOf3Or5 = (lastNumber: number) => {
+    let multiplesOf3or5 = Array();
+    for (let i = 0; i < lastNumber; i++) {
+        if (i % 3 == 0 || i%5==0) {
+            multiplesOf3or5.push(i)
+        }
+    }
+    return multiplesOf3or5;
+}
+
