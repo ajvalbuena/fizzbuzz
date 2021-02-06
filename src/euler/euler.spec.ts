@@ -15,9 +15,16 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
         });
     })
 
-    it("If N=4 --> 3", () => {
-        const sumResult = 3
-        expect(euler(4)).toBe(sumResult)
-    });
+    const inputsWithResult3 = [
+        {description: 'If N= 4 --> 3', lastNumber: 4},
+        {description: 'If N= 5 --> 3', lastNumber: 5},
+    ]
+
+    inputsWithResult3.forEach((input) => {
+        it(input.description, () => {
+            const sumResult = 3
+            expect(euler(input.lastNumber)).toBe(sumResult)
+        });
+    })
 
 })
