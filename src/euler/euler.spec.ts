@@ -15,6 +15,7 @@ describe("Solving Euler problem, from 0 to < N (N not included)", () => {
         {description: 'If N= 10 --> 3,5,6,9 --> sum=23', lastNumber: 10, resultOfSum: 23},
         {description: 'If N= 15 --> 3,5,6,9,10,12 --> sum=45', lastNumber: 15, resultOfSum: 45},
         {description: 'If N= 16 --> 3,5,6,9,10,12,15 --> sum=60', lastNumber: 16, resultOfSum: 60},
+        {description: 'If N= 1000 --> sum=60', lastNumber: 1000, resultOfSum: 233168},
 
     ]
 
